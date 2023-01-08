@@ -19,5 +19,47 @@
         "name": "Chicken Rush",
         "price": "18.99",
         "image": "pizza-03.png"
+    },
+    {
+        "id": 3,
+        "type": "salad",
+        "name": "Mixied Salad",
+        "price": "9.99",
+        "image": "salad-01.png"
+    },
+    {
+        "id": 4,
+        "type": "salad",
+        "name": "Cisar Rock",
+        "price": "9.99",
+        "image": "salad-02.png"
+    },
+    {
+        "id": 5,
+        "type": "salad",
+        "name": "Brooklyn Salad",
+        "price": "9.99",
+        "image": "salad-03.png"
+    },
+    {
+        "id": 6,
+        "type": "drink",
+        "name": "Italliano Richa",
+        "price": "23.99",
+        "image": "pizza-01.png"
+    },
+    {
+        "id": 7,
+        "type": "drink",
+        "name": "Alberoo Pizza",
+        "price": "25.99",
+        "image": "pizza-02.png"
+    },
+    {
+        "id": 8,
+        "type": "drink",
+        "name": "Chicken Rush",
+        "price": "18.99",
+        "image": "pizza-03.png"
     }
 ]
