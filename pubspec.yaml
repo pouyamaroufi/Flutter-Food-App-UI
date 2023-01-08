@@ -1,0 +1,41 @@
+name: foodapp
+description: Flutter Food App UI.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  carousel_slider: ^4.2.1
+
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+
+flutter:
+
+  uses-material-design: true
+
+
+  assets:
+    - assets/images/drink-01.png
+    - assets/images/drink-02.png
+    - assets/images/drink-03.png
+    - assets/images/pizza-01.png
+    - assets/images/pizza-02.png
+    - assets/images/pizza-03.png
+    - assets/images/salad-01.png
+    - assets/images/salad-02.png
+    - assets/images/salad-03.png
+

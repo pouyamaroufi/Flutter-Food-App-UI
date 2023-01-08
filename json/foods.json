@@ -1,0 +1,23 @@
+[
+    {
+        "id": 0,
+        "type": "pizza",
+        "name": "Italliano Richa",
+        "price": "23.99",
+        "image": "pizza-01.png"
+    },
+    {
+        "id": 1,
+        "type": "pizza",
+        "name": "Alberoo Pizza",
+        "price": "25.99",
+        "image": "pizza-02.png"
+    },
+    {
+        "id": 2,
+        "type": "pizza",
+        "name": "Chicken Rush",
+        "price": "18.99",
+        "image": "pizza-03.png"
+    }
+]
