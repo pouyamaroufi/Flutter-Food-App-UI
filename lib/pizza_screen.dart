@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:foodapp/controller.dart';
 import 'package:foodapp/triangle_painter.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class PizzaScreen extends StatelessWidget {
   final controller = Get.put(Controller());
@@ -14,9 +15,9 @@ class PizzaScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Food Mood',
-          style: TextStyle(fontWeight: FontWeight.w800),
+          style: GoogleFonts.getFont('Titan One', fontSize: 30),
         ),
       ),
       body: Obx(
@@ -52,8 +53,6 @@ class PizzaScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(controller
-                          .foodList[controller.contentIndex.value].name!),
                       CarouselSlider.builder(
                         itemCount: controller.foodList.length,
                         itemBuilder: (BuildContext context, int i,
@@ -64,7 +63,7 @@ class PizzaScreen extends StatelessWidget {
                                 child: Image.asset(
                                     'assets/images/${controller.foodList[i].image!}')),
                         options: CarouselOptions(
-                            height: 700,
+                            height: 400,
                             aspectRatio: 1,
                             viewportFraction: 0.7,
                             initialPage: 0,
@@ -76,6 +75,11 @@ class PizzaScreen extends StatelessWidget {
                             onPageChanged: (i, change) {
                               controller.contentIndex.value = i;
                             }),
+                      ),
+                      Text(
+                        controller
+                            .foodList[controller.contentIndex.value].name!,
+                        style: GoogleFonts.getFont('Lobster', fontSize: 22),
                       ),
                     ],
                   )

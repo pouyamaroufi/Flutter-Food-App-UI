@@ -14,7 +14,8 @@ dependencies:
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.2
   get: ^4.6.5
-
+  google_fonts: ^4.0.3
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
