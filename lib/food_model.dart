@@ -7,19 +7,14 @@ String foodModelToJson(List<FoodModel> data) =>
     json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class FoodModel {
-  FoodModel({
-    required this.id,
-    required this.type,
-    required this.name,
-    required this.price,
-    required this.image,
-  });
+  FoodModel({this.id, this.type, this.name, this.price, this.image, this.item});
 
-  final int? id;
-  final String? type;
-  final String? name;
-  final String? price;
-  final String? image;
+  int? id;
+  String? type;
+  String? name;
+  String? price;
+  String? image;
+  int? item;
 
   factory FoodModel.fromJson(Map<String, dynamic> json) => FoodModel(
         id: json["id"],
@@ -27,6 +22,7 @@ class FoodModel {
         name: json["name"],
         price: json["price"],
         image: json["image"],
+        item: json["item"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -35,5 +31,6 @@ class FoodModel {
         "name": name,
         "price": price,
         "image": image,
+        "item": item
       };
 }

@@ -6,9 +6,12 @@ import 'package:get/get.dart';
 class Controller extends GetxController {
   var isLoading = true.obs;
   var contentIndex = 0.obs;
+
+  var dataSet = List<FoodModel>.empty(growable: true).obs;
   var foodList = List<FoodModel>.empty(growable: true).obs;
   var saladList = List<FoodModel>.empty(growable: true).obs;
   var drinkList = List<FoodModel>.empty(growable: true).obs;
+  var orderList = List<FoodModel>.empty(growable: true).obs;
 
   @override
   void onInit() async {
@@ -31,12 +34,23 @@ class Controller extends GetxController {
       var pizza = result.where((p0) => p0.type == 'pizza').toList();
       var salad = result.where((p0) => p0.type == 'salad').toList();
       var drink = result.where((p0) => p0.type == 'drink').toList();
+      dataSet.assignAll(result);
       foodList.assignAll(pizza);
       saladList.assignAll(salad);
       drinkList.assignAll(drink);
+      orderList.value = foodList.where((element) => element.item != 0).toList();
       update();
     } finally {
       isLoading(false);
     }
+  }
+
+  addOrder(int input) {
+    var order = dataSet.where((p0) => p0.id == input).toList();
+    orderList.addAll(order);
+  }
+
+  removeOrder(int input) {
+    orderList.removeWhere((p0) => p0.id == input);
   }
 }

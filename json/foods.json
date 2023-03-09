@@ -4,62 +4,71 @@
         "type": "pizza",
         "name": "Alberoo Pizza",
         "price": "23.99",
-        "image": "pizza-01.png"
+        "image": "pizza-01.png",
+        "item": 0
     },
     {
         "id": 1,
         "type": "pizza",
         "name": "Pepperoni Pizza",
         "price": "25.99",
-        "image": "pizza-02.png"
+        "image": "pizza-02.png",
+        "item": 0
     },
     {
         "id": 2,
         "type": "pizza",
         "name": "Chicken Rush",
         "price": "18.99",
-        "image": "pizza-03.png"
+        "image": "pizza-03.png",
+        "item": 0
     },
     {
         "id": 3,
         "type": "salad",
         "name": "Mixied Salad",
         "price": "9.99",
-        "image": "salad-01.png"
+        "image": "salad-01.png",
+        "item": 0
     },
     {
         "id": 4,
         "type": "salad",
         "name": "Cisar Rock",
         "price": "9.99",
-        "image": "salad-02.png"
+        "image": "salad-02.png",
+        "item": 0
     },
     {
         "id": 5,
         "type": "salad",
         "name": "Brooklyn Salad",
         "price": "9.99",
-        "image": "salad-03.png"
+        "image": "salad-03.png",
+        "item": 0
     },
     {
         "id": 6,
         "type": "drink",
         "name": "Italliano Richa",
         "price": "23.99",
-        "image": "drink-01.png"
+        "image": "drink-01.png",
+        "item": 0
     },
     {
         "id": 7,
         "type": "drink",
         "name": "Alberoo Pizza",
         "price": "25.99",
-        "image": "drink-02.png"
+        "image": "drink-02.png",
+        "item": 0
     },
     {
         "id": 8,
         "type": "drink",
         "name": "Chicken Rush",
         "price": "18.99",
-        "image": "drink-03.png"
+        "image": "drink-03.png",
+        "item": 0
     }
 ]

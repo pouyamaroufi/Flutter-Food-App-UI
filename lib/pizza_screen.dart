@@ -31,6 +31,7 @@ class PizzaScreen extends StatelessWidget {
               child: RotationTransition(
                 turns: const AlwaysStoppedAnimation(160 / 360),
                 child: RawMaterialButton(
+                  highlightColor: Colors.white,
                   onPressed: () {},
                   child: CustomPaint(
                     painter: TrianglePainter(
@@ -69,7 +70,7 @@ class PizzaScreen extends StatelessWidget {
                                 child: Image.asset(
                                     'assets/images/${controller.foodList[i].image!}')),
                         options: CarouselOptions(
-                            height: 400,
+                            height: 390,
                             aspectRatio: 1,
                             viewportFraction: 0.7,
                             initialPage: 0,
@@ -116,9 +117,14 @@ class PizzaScreen extends StatelessWidget {
                             backgroundColor: Colors.amber[300]!,
                             child: Center(
                               child: Text(
-                                controller.contentIndex.value.toString(),
-                                style: const TextStyle(
-                                    fontSize: 30, color: Colors.black),
+                                controller
+                                    .foodList[controller.contentIndex.value]
+                                    .item
+                                    .toString(),
+                                style: GoogleFonts.getFont('Barlow',
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black),
                               ),
                             ),
                           ),
@@ -131,13 +137,42 @@ class PizzaScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      AvatarStack(
-                        height: 50,
-                        avatars: [
-                          for (var n = 0; n < controller.foodList.length; n++)
-                            AssetImage(
-                                'assets/images/${controller.foodList[n].image!}'),
-                        ],
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            // border: Border.all(
+                            //     color:
+                            //         const Color.fromARGB(255, 193, 193, 193)),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: controller.orderList.isEmpty
+                            ? null
+                            : Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    child: AvatarStack(
+                                      height: 50,
+                                      avatars: [
+                                        for (var n = 0;
+                                            n < controller.foodList.length;
+                                            n++)
+                                          AssetImage(
+                                              'assets/images/${controller.orderList[n].image!}'),
+                                      ],
+                                    ),
+                                  ),
+                                  Text(
+                                    'X ${controller.orderList.length}',
+                                    style: GoogleFonts.getFont('Barlow',
+                                        fontSize: 28,
+                                        fontWeight: FontWeight.w600,
+                                        color: Colors.black),
+                                  ),
+                                ],
+                              ),
                       ),
                     ],
                   )
