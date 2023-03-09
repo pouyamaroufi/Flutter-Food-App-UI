@@ -1,0 +1,90 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
+import 'package:foodapp/controller.dart';
+import 'package:foodapp/triangle_painter.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class SaladScreen extends StatelessWidget {
+  final controller = Get.put(Controller());
+  SaladScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: Text(
+          'Food Mood',
+          style: GoogleFonts.getFont('Titan One', fontSize: 30),
+        ),
+      ),
+      body: Obx(
+        () => Stack(
+          alignment: Alignment.center,
+          children: [
+            Positioned(
+              right: -220,
+              top: -120,
+              child: RotationTransition(
+                turns: const AlwaysStoppedAnimation(160 / 360),
+                child: RawMaterialButton(
+                  onPressed: () {},
+                  child: CustomPaint(
+                    painter: TrianglePainter(
+                      strokeColor: Colors.lime[400]!,
+                      strokeWidth: 10,
+                      paintingStyle: PaintingStyle.fill,
+                    ),
+                    child: const SizedBox(
+                      height: 900,
+                      width: 500,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            controller.isLoading.value
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CarouselSlider.builder(
+                        itemCount: controller.saladList.length,
+                        itemBuilder: (BuildContext context, int i,
+                                int pageViewIndex) =>
+                            Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
+                                child: Image.asset(
+                                    'assets/images/${controller.saladList[i].image!}')),
+                        options: CarouselOptions(
+                            height: 400,
+                            aspectRatio: 1,
+                            viewportFraction: 0.7,
+                            initialPage: 0,
+                            enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: false,
+                            enlargeCenterPage: true,
+                            onPageChanged: (i, change) {
+                              controller.contentIndex.value = i;
+                            }),
+                      ),
+                      Text(
+                        controller
+                            .saladList[controller.contentIndex.value].name!,
+                        style: GoogleFonts.getFont('Lobster', fontSize: 22),
+                      ),
+                    ],
+                  )
+          ],
+        ),
+      ),
+    );
+  }
+}

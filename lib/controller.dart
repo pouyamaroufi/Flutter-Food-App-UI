@@ -7,6 +7,14 @@ class Controller extends GetxController {
   var isLoading = true.obs;
   var contentIndex = 0.obs;
   var foodList = List<FoodModel>.empty(growable: true).obs;
+  var saladList = List<FoodModel>.empty(growable: true).obs;
+  var drinkList = List<FoodModel>.empty(growable: true).obs;
+
+  @override
+  void onInit() async {
+    fetchData();
+    super.onInit();
+  }
 
   Future<List<FoodModel>> readJsonFile() async {
     List<dynamic> loadedData = [];
@@ -16,12 +24,16 @@ class Controller extends GetxController {
     return loadedData.map((e) => FoodModel.fromJson(e)).toList();
   }
 
-  fetchPizza() async {
+  fetchData() async {
     try {
       isLoading(true);
       var result = await readJsonFile();
-      result = result.where((p0) => p0.type == 'pizza').toList();
-      foodList.assignAll(result);
+      var pizza = result.where((p0) => p0.type == 'pizza').toList();
+      var salad = result.where((p0) => p0.type == 'salad').toList();
+      var drink = result.where((p0) => p0.type == 'drink').toList();
+      foodList.assignAll(pizza);
+      saladList.assignAll(salad);
+      drinkList.assignAll(drink);
       update();
     } finally {
       isLoading(false);

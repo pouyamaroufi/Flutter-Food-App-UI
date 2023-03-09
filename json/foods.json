@@ -9,7 +9,7 @@
     {
         "id": 1,
         "type": "pizza",
-        "name": "Peperonii Pizza",
+        "name": "Pepperoni Pizza",
         "price": "25.99",
         "image": "pizza-02.png"
     },

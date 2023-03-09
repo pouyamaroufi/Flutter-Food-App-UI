@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
+  avatar_stack:
+    dependency: "direct main"
+    description:
+      name: avatar_stack
+      sha256: f4614fdd04503eaf50300259adb3b33b00f2f34505192aba5848e76adf118443
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   boolean_selector:
     dependency: transitive
     description:
