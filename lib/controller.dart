@@ -38,7 +38,6 @@ class Controller extends GetxController {
       foodList.assignAll(pizza);
       saladList.assignAll(salad);
       drinkList.assignAll(drink);
-      orderList.value = foodList.where((element) => element.item != 0).toList();
       update();
     } finally {
       isLoading(false);
@@ -48,9 +47,12 @@ class Controller extends GetxController {
   addOrder(int input) {
     var order = dataSet.where((p0) => p0.id == input).toList();
     orderList.addAll(order);
+    update();
   }
 
   removeOrder(int input) {
-    orderList.removeWhere((p0) => p0.id == input);
+    var order = dataSet.where((p0) => p0.id == input).first;
+    orderList.remove(order);
+    update();
   }
 }

@@ -31,6 +31,7 @@ class PizzaScreen extends StatelessWidget {
               child: RotationTransition(
                 turns: const AlwaysStoppedAnimation(160 / 360),
                 child: RawMaterialButton(
+                  splashColor: Colors.white,
                   highlightColor: Colors.white,
                   onPressed: () {},
                   child: CustomPaint(
@@ -53,8 +54,10 @@ class PizzaScreen extends StatelessWidget {
                   )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const SizedBox(
+                        height: 150,
+                      ),
                       Text(
                         controller
                             .foodList[controller.contentIndex.value].name!,
@@ -107,7 +110,22 @@ class PizzaScreen extends StatelessWidget {
                         children: [
                           IconButton(
                             iconSize: 35,
-                            onPressed: () {},
+                            onPressed: () {
+                              if (controller
+                                      .foodList[controller.contentIndex.value]
+                                      .item !=
+                                  0) {
+                                controller
+                                    .foodList[controller.contentIndex.value]
+                                    .item = controller
+                                        .foodList[controller.contentIndex.value]
+                                        .item! -
+                                    1;
+                                controller.removeOrder(controller
+                                    .foodList[controller.contentIndex.value]
+                                    .id!);
+                              }
+                            },
                             icon: const Icon(
                               Icons.remove,
                             ),
@@ -130,7 +148,15 @@ class PizzaScreen extends StatelessWidget {
                           ),
                           IconButton(
                             iconSize: 35,
-                            onPressed: () {},
+                            onPressed: () {
+                              controller.foodList[controller.contentIndex.value]
+                                  .item = controller
+                                      .foodList[controller.contentIndex.value]
+                                      .item! +
+                                  1;
+                              controller.addOrder(controller
+                                  .foodList[controller.contentIndex.value].id!);
+                            },
                             icon: const Icon(
                               Icons.add,
                             ),
@@ -153,23 +179,28 @@ class PizzaScreen extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Expanded(
+                                    flex: 5,
                                     child: AvatarStack(
                                       height: 50,
                                       avatars: [
                                         for (var n = 0;
-                                            n < controller.foodList.length;
+                                            n < controller.orderList.length;
                                             n++)
                                           AssetImage(
                                               'assets/images/${controller.orderList[n].image!}'),
                                       ],
                                     ),
                                   ),
-                                  Text(
-                                    'X ${controller.orderList.length}',
-                                    style: GoogleFonts.getFont('Barlow',
-                                        fontSize: 28,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.black),
+                                  Expanded(
+                                    flex: 7,
+                                    child: Text(
+                                      'X ${controller.orderList.length}',
+                                      textAlign: TextAlign.end,
+                                      style: GoogleFonts.getFont('Barlow',
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.black),
+                                    ),
                                   ),
                                 ],
                               ),
