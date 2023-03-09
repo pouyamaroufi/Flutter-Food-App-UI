@@ -44,15 +44,17 @@ class PizzaScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                controller.isLoading.value
-                    ? const Center(
-                        child: CircularProgressIndicator(),
-                      )
-                    : CarouselSlider.builder(
+            controller.isLoading.value
+                ? const Center(
+                    child: CircularProgressIndicator(),
+                  )
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(controller
+                          .foodList[controller.contentIndex.value].name!),
+                      CarouselSlider.builder(
                         itemCount: controller.foodList.length,
                         itemBuilder: (BuildContext context, int i,
                                 int pageViewIndex) =>
@@ -62,19 +64,21 @@ class PizzaScreen extends StatelessWidget {
                                 child: Image.asset(
                                     'assets/images/${controller.foodList[i].image!}')),
                         options: CarouselOptions(
-                          height: 700,
-                          aspectRatio: 1,
-                          viewportFraction: 0.7,
-                          initialPage: 0,
-                          enlargeStrategy: CenterPageEnlargeStrategy.scale,
-                          enableInfiniteScroll: true,
-                          reverse: false,
-                          autoPlay: false,
-                          enlargeCenterPage: true,
-                        ),
+                            height: 700,
+                            aspectRatio: 1,
+                            viewportFraction: 0.7,
+                            initialPage: 0,
+                            enlargeStrategy: CenterPageEnlargeStrategy.scale,
+                            enableInfiniteScroll: true,
+                            reverse: false,
+                            autoPlay: false,
+                            enlargeCenterPage: true,
+                            onPageChanged: (i, change) {
+                              controller.contentIndex.value = i;
+                            }),
                       ),
-              ],
-            )
+                    ],
+                  )
           ],
         ),
       ),

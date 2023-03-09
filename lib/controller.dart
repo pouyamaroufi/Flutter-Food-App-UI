@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 class Controller extends GetxController {
   var isLoading = true.obs;
+  var contentIndex = 0.obs;
   var foodList = List<FoodModel>.empty(growable: true).obs;
 
   Future<List<FoodModel>> readJsonFile() async {
