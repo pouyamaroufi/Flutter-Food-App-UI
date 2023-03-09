@@ -46,20 +46,20 @@
         "type": "drink",
         "name": "Italliano Richa",
         "price": "23.99",
-        "image": "pizza-01.png"
+        "image": "drink-01.png"
     },
     {
         "id": 7,
         "type": "drink",
         "name": "Alberoo Pizza",
         "price": "25.99",
-        "image": "pizza-02.png"
+        "image": "drink-02.png"
     },
     {
         "id": 8,
         "type": "drink",
         "name": "Chicken Rush",
         "price": "18.99",
-        "image": "pizza-03.png"
+        "image": "drink-03.png"
     }
 ]

@@ -1,12 +1,10 @@
 import 'dart:convert';
 
-List<FoodModel?>? foodModelFromJson(String str) => json.decode(str) == null
-    ? []
-    : List<FoodModel?>.from(
-        json.decode(str)!.map((x) => FoodModel.fromJson(x)));
+List<FoodModel> foodModelFromJson(String str) =>
+    List<FoodModel>.from(json.decode(str).map((x) => FoodModel.fromJson(x)));
 
-String foodModelToJson(List<FoodModel?>? data) => json.encode(
-    data == null ? [] : List<dynamic>.from(data.map((x) => x!.toJson())));
+String foodModelToJson(List<FoodModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class FoodModel {
   FoodModel({
