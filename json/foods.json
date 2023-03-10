@@ -50,24 +50,24 @@
     {
         "id": 6,
         "type": "drink",
-        "name": "Italliano Richa",
-        "price": "23.99",
+        "name": "Coca",
+        "price": "1.99",
         "image": "drink-01.png",
         "item": 0
     },
     {
         "id": 7,
         "type": "drink",
-        "name": "Alberoo Pizza",
-        "price": "25.99",
+        "name": "Beer",
+        "price": "1.99",
         "image": "drink-02.png",
         "item": 0
     },
     {
         "id": 8,
         "type": "drink",
-        "name": "Chicken Rush",
-        "price": "18.99",
+        "name": "Soda Rush",
+        "price": "1.99",
         "image": "drink-03.png",
         "item": 0
     }

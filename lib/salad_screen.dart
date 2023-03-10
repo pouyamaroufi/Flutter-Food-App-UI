@@ -2,6 +2,7 @@ import 'package:avatar_stack/avatar_stack.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:foodapp/controller.dart';
+import 'package:foodapp/drink_screen.dart';
 import 'package:foodapp/triangle_painter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -213,9 +214,11 @@ class SaladScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.lime,
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 100, vertical: 10),
+                                horizontal: 130, vertical: 10),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(() => DrinkScreen());
+                          },
                           child: const Text(
                             'Continue 🥬',
                             style: TextStyle(color: Colors.black, fontSize: 18),

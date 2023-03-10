@@ -17,7 +17,7 @@ class PizzaScreen extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(
-          '🍟 Food Mood 🍟',
+          '🍟 Pizza Mood 🍟',
           style: GoogleFonts.getFont('Barlow',
               fontSize: 30, fontWeight: FontWeight.bold),
         ),
@@ -211,7 +211,7 @@ class PizzaScreen extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.amber,
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 100, vertical: 10),
+                                  horizontal: 130, vertical: 10),
                             ),
                             onPressed: () {
                               Get.to(() => SaladScreen());
