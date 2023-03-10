@@ -60,7 +60,7 @@ class SaladScreen extends StatelessWidget {
                       children: AnimationConfiguration.toStaggeredList(
                         duration: const Duration(milliseconds: 375),
                         childAnimationBuilder: (widget) => SlideAnimation(
-                          verticalOffset: 150.0,
+                          verticalOffset: 50.0,
                           child: FadeInAnimation(
                             child: widget,
                           ),
