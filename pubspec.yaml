@@ -16,6 +16,7 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^4.0.3
   avatar_stack: ^1.1.2
+  flutter_staggered_animations: ^1.1.1
   
 dev_dependencies:
   flutter_test:
