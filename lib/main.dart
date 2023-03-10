@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'Flutter Food App UI',
       debugShowCheckedModeBanner: false,
+      defaultTransition: Transition.fade,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
             elevation: 0, backgroundColor: Colors.transparent),

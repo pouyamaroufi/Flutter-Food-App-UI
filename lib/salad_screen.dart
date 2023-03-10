@@ -1,3 +1,4 @@
+import 'package:avatar_stack/avatar_stack.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:foodapp/controller.dart';
@@ -15,8 +16,9 @@ class SaladScreen extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(
-          'Food Mood',
-          style: GoogleFonts.getFont('Titan One', fontSize: 30),
+          '🌽 Salad Mood 🥦',
+          style: GoogleFonts.getFont('Barlow',
+              fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
       body: Obx(
@@ -29,6 +31,8 @@ class SaladScreen extends StatelessWidget {
               child: RotationTransition(
                 turns: const AlwaysStoppedAnimation(160 / 360),
                 child: RawMaterialButton(
+                  splashColor: Colors.white,
+                  highlightColor: Colors.white,
                   onPressed: () {},
                   child: CustomPaint(
                     painter: TrianglePainter(
@@ -50,8 +54,15 @@ class SaladScreen extends StatelessWidget {
                   )
                 : Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      const SizedBox(
+                        height: 150,
+                      ),
+                      Text(
+                        controller
+                            .saladList[controller.contentIndex.value].name!,
+                        style: GoogleFonts.getFont('Lobster', fontSize: 25),
+                      ),
                       CarouselSlider.builder(
                         itemCount: controller.saladList.length,
                         itemBuilder: (BuildContext context, int i,
@@ -62,7 +73,7 @@ class SaladScreen extends StatelessWidget {
                                 child: Image.asset(
                                     'assets/images/${controller.saladList[i].image!}')),
                         options: CarouselOptions(
-                            height: 400,
+                            height: 390,
                             aspectRatio: 1,
                             viewportFraction: 0.7,
                             initialPage: 0,
@@ -75,11 +86,141 @@ class SaladScreen extends StatelessWidget {
                               controller.contentIndex.value = i;
                             }),
                       ),
-                      Text(
-                        controller
-                            .saladList[controller.contentIndex.value].name!,
-                        style: GoogleFonts.getFont('Lobster', fontSize: 22),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          const Icon(
+                            Icons.heart_broken_rounded,
+                            color: Colors.grey,
+                          ),
+                          Text(
+                            '${controller.saladList[controller.contentIndex.value].price!} \$',
+                            style: GoogleFonts.getFont('Barlow',
+                                fontSize: 25, fontWeight: FontWeight.w600),
+                          ),
+                          const Icon(
+                            Icons.favorite_rounded,
+                            color: Colors.grey,
+                          ),
+                        ],
                       ),
+                      const SizedBox(height: 35),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            iconSize: 35,
+                            onPressed: () {
+                              if (controller
+                                      .saladList[controller.contentIndex.value]
+                                      .item !=
+                                  0) {
+                                controller
+                                    .saladList[controller.contentIndex.value]
+                                    .item = controller
+                                        .saladList[
+                                            controller.contentIndex.value]
+                                        .item! -
+                                    1;
+                                controller.removeOrder(controller
+                                    .saladList[controller.contentIndex.value]
+                                    .id!);
+                              }
+                            },
+                            icon: const Icon(
+                              Icons.remove,
+                            ),
+                          ),
+                          CircleAvatar(
+                            radius: 40,
+                            backgroundColor: Colors.lime[300]!,
+                            child: Center(
+                              child: Text(
+                                controller
+                                    .saladList[controller.contentIndex.value]
+                                    .item
+                                    .toString(),
+                                style: GoogleFonts.getFont('Barlow',
+                                    fontSize: 28,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.black),
+                              ),
+                            ),
+                          ),
+                          IconButton(
+                            iconSize: 35,
+                            onPressed: () {
+                              controller
+                                  .saladList[controller.contentIndex.value]
+                                  .item = controller
+                                      .saladList[controller.contentIndex.value]
+                                      .item! +
+                                  1;
+                              controller.addOrder(controller
+                                  .saladList[controller.contentIndex.value]
+                                  .id!);
+                            },
+                            icon: const Icon(
+                              Icons.add,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                            // border: Border.all(
+                            //     color:
+                            //         const Color.fromARGB(255, 193, 193, 193)),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: controller.orderList.isEmpty
+                            ? null
+                            : Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                    flex: 5,
+                                    child: AvatarStack(
+                                      height: 50,
+                                      avatars: [
+                                        for (var n = 0;
+                                            n < controller.orderList.length;
+                                            n++)
+                                          AssetImage(
+                                              'assets/images/${controller.orderList[n].image!}'),
+                                      ],
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 7,
+                                    child: Text(
+                                      'X ${controller.orderList.length}',
+                                      textAlign: TextAlign.end,
+                                      style: GoogleFonts.getFont('Barlow',
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.w600,
+                                          color: Colors.black),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                      ),
+                      if (controller.orderList.isNotEmpty)
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.lime,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 10),
+                          ),
+                          onPressed: () {},
+                          child: const Text(
+                            'Continue 🥬',
+                            style: TextStyle(color: Colors.black, fontSize: 18),
+                          ),
+                        )
                     ],
                   )
           ],

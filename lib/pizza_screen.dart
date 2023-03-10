@@ -2,6 +2,7 @@ import 'package:avatar_stack/avatar_stack.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:foodapp/controller.dart';
+import 'package:foodapp/salad_screen.dart';
 import 'package:foodapp/triangle_painter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +17,7 @@ class PizzaScreen extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(
-          'Food Mood',
+          '🍟 Food Mood 🍟',
           style: GoogleFonts.getFont('Barlow',
               fontSize: 30, fontWeight: FontWeight.bold),
         ),
@@ -205,6 +206,21 @@ class PizzaScreen extends StatelessWidget {
                                 ],
                               ),
                       ),
+                      if (controller.orderList.isNotEmpty)
+                        ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.amber,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 100, vertical: 10),
+                            ),
+                            onPressed: () {
+                              Get.to(() => SaladScreen());
+                            },
+                            child: const Text(
+                              'Continue 🍕',
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 18),
+                            ))
                     ],
                   )
           ],
