@@ -215,7 +215,9 @@ class DrinkScreen extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 130, vertical: 10),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            controller.contentIndex.value = 0;
+                          },
                           child: const Text(
                             'Continue 🥤',
                             style: TextStyle(color: Colors.black, fontSize: 18),

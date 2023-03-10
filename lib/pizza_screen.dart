@@ -214,6 +214,7 @@ class PizzaScreen extends StatelessWidget {
                                   horizontal: 130, vertical: 10),
                             ),
                             onPressed: () {
+                              controller.contentIndex.value = 0;
                               Get.to(() => SaladScreen());
                             },
                             child: const Text(

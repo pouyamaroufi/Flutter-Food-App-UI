@@ -31,7 +31,7 @@ flutter:
 
   assets:
     #json
-    - json/foods.json
+    - assets/json/foods.json
     #images
     - assets/images/drink-01.png
     - assets/images/drink-02.png

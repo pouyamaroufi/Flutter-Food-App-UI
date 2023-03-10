@@ -20,14 +20,14 @@ class Controller extends GetxController {
   }
 
   @override
-  void onClose() {
+  void onClose() async {
     contentIndex.value = 0;
     super.onClose();
   }
 
   Future<List<FoodModel>> readJsonFile() async {
     List<dynamic> loadedData = [];
-    final response = await rootBundle.loadString('json/foods.json');
+    final response = await rootBundle.loadString('assets/json/foods.json');
     final data = json.decode(response);
     loadedData = data as dynamic;
     return loadedData.map((e) => FoodModel.fromJson(e)).toList();

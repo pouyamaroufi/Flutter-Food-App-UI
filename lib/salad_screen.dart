@@ -217,6 +217,7 @@ class SaladScreen extends StatelessWidget {
                                 horizontal: 130, vertical: 10),
                           ),
                           onPressed: () {
+                            controller.contentIndex.value = 0;
                             Get.to(() => DrinkScreen());
                           },
                           child: const Text(
