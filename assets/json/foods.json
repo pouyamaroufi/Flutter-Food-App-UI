@@ -50,7 +50,7 @@
     {
         "id": 6,
         "type": "drink",
-        "name": "Coca",
+        "name": "Diet Coca",
         "price": "1.99",
         "image": "drink-01.png",
         "item": 0
@@ -58,7 +58,7 @@
     {
         "id": 7,
         "type": "drink",
-        "name": "Beer",
+        "name": "Jack Daniel's Coca",
         "price": "1.99",
         "image": "drink-02.png",
         "item": 0
@@ -66,9 +66,25 @@
     {
         "id": 8,
         "type": "drink",
-        "name": "Soda Rush",
+        "name": "Coca",
         "price": "1.99",
         "image": "drink-03.png",
+        "item": 0
+    },
+    {
+        "id": 9,
+        "type": "drink",
+        "name": "Soda Rush",
+        "price": "1.99",
+        "image": "drink-04.png",
+        "item": 0
+    },
+    {
+        "id": 10,
+        "type": "drink",
+        "name": "Beer",
+        "price": "1.99",
+        "image": "drink-05.png",
         "item": 0
     }
 ]
