@@ -99,9 +99,7 @@ class InvoiceScreen extends StatelessWidget {
                     ),
                     onPressed: () {
                       Get.dialog(
-                        Lottie.asset(
-                          'assets/json/faceid.json',
-                        ),
+                        Lottie.asset('assets/json/faceid.json', repeat: false),
                       );
                     },
                     child: const Text(
