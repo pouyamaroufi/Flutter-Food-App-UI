@@ -7,11 +7,14 @@ class Controller extends GetxController {
   var isLoading = true.obs;
   var contentIndex = 0.obs;
 
+  var totalPrice = 0.0.obs;
+
   var dataSet = List<FoodModel>.empty(growable: true).obs;
   var foodList = List<FoodModel>.empty(growable: true).obs;
   var saladList = List<FoodModel>.empty(growable: true).obs;
   var drinkList = List<FoodModel>.empty(growable: true).obs;
   var orderList = List<FoodModel>.empty(growable: true).obs;
+  var invoiceList = List<FoodModel>.empty(growable: true).obs;
 
   @override
   void onInit() async {
@@ -48,6 +51,16 @@ class Controller extends GetxController {
     } finally {
       isLoading(false);
     }
+  }
+
+  invoice() {
+    totalPrice.value = 0.0;
+    invoiceList.value = orderList.toSet().toList();
+    for (var element in invoiceList) {
+      totalPrice.value =
+          totalPrice.value + (double.parse(element.price!) * element.item!);
+    }
+    update();
   }
 
   addOrder(int input) {

@@ -17,6 +17,7 @@ dependencies:
   google_fonts: ^4.0.3
   avatar_stack: ^1.1.2
   flutter_staggered_animations: ^1.1.1
+  countup: ^0.1.4
   
 dev_dependencies:
   flutter_test:

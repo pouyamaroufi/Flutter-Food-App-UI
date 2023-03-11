@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:foodapp/controller.dart';
+import 'package:foodapp/invoice_screen.dart';
 import 'package:foodapp/triangle_painter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -234,6 +235,7 @@ class DrinkScreen extends StatelessWidget {
                               ),
                               onPressed: () {
                                 controller.contentIndex.value = 0;
+                                Get.to(() => InvoiceScreen());
                               },
                               child: const Text(
                                 'Continue 🥤',
