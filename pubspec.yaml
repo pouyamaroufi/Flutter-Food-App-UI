@@ -18,6 +18,7 @@ dependencies:
   avatar_stack: ^1.1.2
   flutter_staggered_animations: ^1.1.1
   countup: ^0.1.4
+  lottie: ^2.2.0
   
 dev_dependencies:
   flutter_test:
@@ -34,6 +35,7 @@ flutter:
   assets:
     #json
     - assets/json/foods.json
+    - assets/json/faceid.json
     #images
     - assets/images/drink-01.png
     - assets/images/drink-02.png

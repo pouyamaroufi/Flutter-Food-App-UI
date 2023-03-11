@@ -4,6 +4,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:foodapp/controller.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
 
 class InvoiceScreen extends StatelessWidget {
   final controller = Get.put(Controller());
@@ -77,12 +78,12 @@ class InvoiceScreen extends StatelessWidget {
                         fontWeight: FontWeight.w600, fontSize: 72),
                   ),
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 80),
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 130, vertical: 10),
+                          horizontal: 130, vertical: 20),
                     ),
                     onPressed: () {},
                     child: const Text(
@@ -94,9 +95,15 @@ class InvoiceScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 130, vertical: 10),
+                          horizontal: 130, vertical: 20),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.dialog(
+                        Lottie.asset(
+                          'assets/json/faceid.json',
+                        ),
+                      );
+                    },
                     child: const Text(
                       '     Apple Pay     ',
                       style: TextStyle(color: Colors.white, fontSize: 18),
