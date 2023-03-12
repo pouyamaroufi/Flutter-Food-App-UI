@@ -2,6 +2,7 @@ import 'package:avatar_stack/avatar_stack.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:foodapp/btn_widget.dart';
 import 'package:foodapp/controller.dart';
 import 'package:foodapp/drink_screen.dart';
 import 'package:foodapp/triangle_painter.dart';
@@ -227,22 +228,14 @@ class SaladScreen extends StatelessWidget {
                                   ),
                           ),
                           if (controller.orderList.isNotEmpty)
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.lime,
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 130, vertical: 10),
-                              ),
-                              onPressed: () {
-                                controller.contentIndex.value = 0;
-                                Get.to(() => DrinkScreen());
-                              },
-                              child: const Text(
-                                'Continue 🥬',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 18),
-                              ),
-                            )
+                            BtnWidget(
+                                text: 'Continue 🥬',
+                                color: Colors.lime,
+                                txtColor: Colors.black,
+                                destination: () {
+                                  controller.contentIndex.value = 0;
+                                  Get.to(() => DrinkScreen());
+                                })
                         ],
                       ),
                     ),

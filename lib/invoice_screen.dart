@@ -1,10 +1,11 @@
 import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:foodapp/btn_widget.dart';
 import 'package:foodapp/controller.dart';
+import 'package:foodapp/payment_sheet.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:lottie/lottie.dart';
 
 class InvoiceScreen extends StatelessWidget {
   final controller = Get.put(Controller());
@@ -79,33 +80,33 @@ class InvoiceScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 80),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.amber,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 130, vertical: 15),
-                    ),
-                    onPressed: () {},
-                    child: const Text(
-                      'Pay with PayPal',
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                    )),
+                BtnWidget(
+                    text: 'Pay with PayPal',
+                    color: Colors.amber,
+                    txtColor: Colors.black,
+                    destination: () {}),
                 const SizedBox(height: 20),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 130, vertical: 15),
-                    ),
-                    onPressed: () {
-                      Get.dialog(
-                        Lottie.asset('assets/json/faceid.json', repeat: false),
-                      );
-                    },
-                    child: const Text(
-                      '     Apple Pay    ',
-                      style: TextStyle(color: Colors.white, fontSize: 18),
-                    ))
+                BtnWidget(
+                    text: '  Apple Pay',
+                    color: Colors.black,
+                    txtColor: Colors.white,
+                    destination: () {
+                      Get.bottomSheet(
+                          Container(
+                            width: Get.width,
+                            color: Colors.white,
+                            child: PaymentSheet(
+                              price: controller.totalPrice.value,
+                            ),
+                          ),
+                          clipBehavior: Clip.hardEdge,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30)),
+                          ),
+                          isDismissible: true);
+                    }),
               ],
             ),
           ),

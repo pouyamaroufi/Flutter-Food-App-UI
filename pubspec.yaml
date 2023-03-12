@@ -36,6 +36,7 @@ flutter:
     #json
     - assets/json/foods.json
     - assets/json/faceid.json
+    - assets/json/faceid-2.json
     #images
     - assets/images/drink-01.png
     - assets/images/drink-02.png

@@ -2,6 +2,7 @@ import 'package:avatar_stack/avatar_stack.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:foodapp/btn_widget.dart';
 import 'package:foodapp/controller.dart';
 import 'package:foodapp/invoice_screen.dart';
 import 'package:foodapp/triangle_painter.dart';
@@ -227,21 +228,14 @@ class DrinkScreen extends StatelessWidget {
                                   ),
                           ),
                           if (controller.orderList.isNotEmpty)
-                            ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.red,
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 130, vertical: 10),
-                              ),
-                              onPressed: () {
+                            BtnWidget(
+                              text: 'Continue 🥤',
+                              color: Colors.red,
+                              txtColor: Colors.black,
+                              destination: () {
                                 controller.contentIndex.value = 0;
                                 Get.to(() => InvoiceScreen());
                               },
-                              child: const Text(
-                                'Continue 🥤',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 18),
-                              ),
                             )
                         ],
                       ),
