@@ -33,7 +33,7 @@ class PaymentSheet extends StatelessWidget {
                 'Barlow',
               ),
             ),
-            trailing: Text('$price  \$'),
+            trailing: Text('${price.floor()}  \$'),
           ),
           const Divider(
             thickness: 0.5,

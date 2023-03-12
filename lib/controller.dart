@@ -22,12 +22,6 @@ class Controller extends GetxController {
     super.onInit();
   }
 
-  @override
-  void onClose() async {
-    contentIndex.value = 0;
-    super.onClose();
-  }
-
   Future<List<FoodModel>> readJsonFile() async {
     List<dynamic> loadedData = [];
     final response = await rootBundle.loadString('assets/json/foods.json');

@@ -14,17 +14,17 @@ class InvoiceScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     controller.invoice();
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Invoice',
-          style: TextStyle(fontWeight: FontWeight.bold),
+    return Obx(
+      () => Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            'Invoice',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
         ),
-      ),
-      body: Stack(children: [
-        SingleChildScrollView(
-          child: Obx(
-            () => Column(
+        body: Stack(children: [
+          SingleChildScrollView(
+            child: Column(
               children: [
                 AnimationLimiter(
                   child: ListView.builder(
@@ -61,25 +61,72 @@ class InvoiceScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Divider(),
-                ListTile(
-                  title: Text(
-                    'Total Price:',
-                    style: GoogleFonts.getFont('Barlow',
-                        fontWeight: FontWeight.w600, fontSize: 20),
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[200]!,
+                        spreadRadius: 0,
+                        blurRadius: 15,
+                        offset: const Offset(0, 0),
+                      ),
+                    ],
                   ),
-                  subtitle: Countup(
-                    begin: 0,
-                    end: controller.totalPrice.value,
-                    duration: const Duration(seconds: 1),
-                    separator: ',',
-                    suffix: '  \$',
-                    curve: Curves.easeIn,
-                    style: GoogleFonts.getFont('Barlow',
-                        fontWeight: FontWeight.w600, fontSize: 72),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text(
+                          'order:',
+                          style: GoogleFonts.getFont(
+                            'Barlow',
+                          ),
+                        ),
+                        trailing:
+                            Text('${controller.totalPrice.value.floor()} \$'),
+                      ),
+                      ListTile(
+                        title: Text(
+                          'Tax:',
+                          style: GoogleFonts.getFont(
+                            'Barlow',
+                          ),
+                        ),
+                        trailing: const Text('0.5 \$'),
+                      ),
+                      ListTile(
+                        title: Text(
+                          'Dilivery:',
+                          style: GoogleFonts.getFont(
+                            'Barlow',
+                          ),
+                        ),
+                        trailing: const Text('2 \$'),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: Text(
+                          'Total Price:',
+                          style: GoogleFonts.getFont('Barlow',
+                              fontWeight: FontWeight.w600, fontSize: 20),
+                        ),
+                        trailing: Countup(
+                          begin: 0,
+                          end: controller.totalPrice.value + 5,
+                          duration: const Duration(seconds: 1),
+                          separator: ',',
+                          suffix: '  \$',
+                          curve: Curves.easeIn,
+                          style: GoogleFonts.getFont('Barlow',
+                              fontWeight: FontWeight.w600, fontSize: 32),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 80),
                 BtnWidget(
                     text: 'Pay with PayPal',
                     color: Colors.amber,
@@ -110,8 +157,8 @@ class InvoiceScreen extends StatelessWidget {
               ],
             ),
           ),
-        ),
-      ]),
+        ]),
+      ),
     );
   }
 }
