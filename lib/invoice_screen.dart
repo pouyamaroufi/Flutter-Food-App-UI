@@ -83,7 +83,7 @@ class InvoiceScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.amber,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 130, vertical: 20),
+                          horizontal: 130, vertical: 15),
                     ),
                     onPressed: () {},
                     child: const Text(
@@ -95,7 +95,7 @@ class InvoiceScreen extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.black,
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 130, vertical: 20),
+                          horizontal: 130, vertical: 15),
                     ),
                     onPressed: () {
                       Get.dialog(
@@ -103,7 +103,7 @@ class InvoiceScreen extends StatelessWidget {
                       );
                     },
                     child: const Text(
-                      '     Apple Pay     ',
+                      '     Apple Pay    ',
                       style: TextStyle(color: Colors.white, fontSize: 18),
                     ))
               ],
