@@ -19,6 +19,7 @@ dependencies:
   flutter_staggered_animations: ^1.1.1
   countup: ^0.1.4
   lottie: ^2.2.0
+  flutter_slidable: ^2.0.0
   
 dev_dependencies:
   flutter_test:
