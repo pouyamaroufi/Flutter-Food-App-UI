@@ -1,16 +1,5 @@
-# foodapp
+<img src="https://raw.githubusercontent.com/pouyamaroufi/Flutter-Food-App-UI/master/assets/github/appicon.png" alt="flutter food app ui cover" width='50px' aligment='left'> # Flutter Food App UI
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+<img src="https://raw.githubusercontent.com/pouyamaroufi/Flutter-Food-App-UI/master/assets/github/pouyamaroufi-foodapp-ui.png" alt="flutter food app ui cover" width='350px' aligment='center'>
+</p>
