@@ -125,7 +125,7 @@ class InvoiceScreen extends StatelessWidget {
                         trailing: Countup(
                           begin: 0,
                           end: controller.totalPrice.value + 2,
-                          duration: const Duration(seconds: 1),
+                          duration: const Duration(seconds: 2),
                           separator: ',',
                           prefix: '\$   ',
                           curve: Curves.easeIn,
