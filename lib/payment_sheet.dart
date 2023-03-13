@@ -20,31 +20,36 @@ class PaymentSheet extends StatelessWidget {
           ListTile(
             title: Text(
               'Wallet:',
-              style: GoogleFonts.getFont(
-                'Barlow',
-              ),
+              style: GoogleFonts.getFont('Barlow', fontWeight: FontWeight.bold),
             ),
-            trailing: const Text('\$ 28,562'),
+            trailing: Text(
+              '\$ 28,562',
+              style: GoogleFonts.getFont('Barlow',
+                  fontWeight: FontWeight.bold, fontSize: 18),
+            ),
           ),
           ListTile(
             title: Text(
               'Total Price:',
-              style: GoogleFonts.getFont(
-                'Barlow',
-              ),
+              style: GoogleFonts.getFont('Barlow', fontWeight: FontWeight.bold),
             ),
-            trailing: Text('\$ ${price.floor()}'),
+            trailing: Text(
+              '- \$ ${price.floor()}',
+              style: GoogleFonts.getFont('Barlow',
+                  color: Colors.red, fontWeight: FontWeight.bold, fontSize: 18),
+            ),
           ),
           const Divider(
             thickness: 0.5,
           ),
           ListTile(
-            title: Text(
-              '',
+            trailing: Text(
+              '\$ ${(28562 - price).floor()}',
               style: GoogleFonts.getFont('Barlow',
-                  color: Colors.black, fontWeight: FontWeight.bold),
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 20),
             ),
-            trailing: Text('\$ ${(28562 - price).floor()}'),
           ),
           const SizedBox(height: 25),
           BtnWidget(
