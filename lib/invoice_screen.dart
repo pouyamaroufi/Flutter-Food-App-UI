@@ -50,7 +50,7 @@ class InvoiceScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w600),
                             ),
                             subtitle: Text(
-                              '${controller.invoiceList[i].price!} \$',
+                              '\$  ${controller.invoiceList[i].price!}',
                             ),
                             trailing: Text(
                               'X ${controller.invoiceList[i].item.toString()}',
@@ -86,7 +86,7 @@ class InvoiceScreen extends StatelessWidget {
                           ),
                         ),
                         trailing:
-                            Text('${controller.totalPrice.value.floor()} \$'),
+                            Text('\$  ${controller.totalPrice.value.floor()}'),
                       ),
                       ListTile(
                         title: Text(
@@ -95,7 +95,7 @@ class InvoiceScreen extends StatelessWidget {
                             'Barlow',
                           ),
                         ),
-                        trailing: const Text('0.5 \$'),
+                        trailing: const Text('\$ 0.5'),
                       ),
                       ListTile(
                         title: Text(
@@ -104,7 +104,7 @@ class InvoiceScreen extends StatelessWidget {
                             'Barlow',
                           ),
                         ),
-                        trailing: const Text('2 \$'),
+                        trailing: const Text('\$ 2'),
                       ),
                       const Divider(),
                       ListTile(
@@ -115,10 +115,10 @@ class InvoiceScreen extends StatelessWidget {
                         ),
                         trailing: Countup(
                           begin: 0,
-                          end: controller.totalPrice.value + 5,
+                          end: controller.totalPrice.value + 2,
                           duration: const Duration(seconds: 1),
                           separator: ',',
-                          suffix: '  \$',
+                          prefix: '\$   ',
                           curve: Curves.easeIn,
                           style: GoogleFonts.getFont('Barlow',
                               fontWeight: FontWeight.w600, fontSize: 32),

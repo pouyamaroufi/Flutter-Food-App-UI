@@ -107,7 +107,7 @@ class PizzaScreen extends StatelessWidget {
                                 color: Colors.grey,
                               ),
                               Text(
-                                '${controller.foodList[controller.contentIndex.value].price!} \$',
+                                '\$ ${controller.foodList[controller.contentIndex.value].price!}',
                                 style: GoogleFonts.getFont('Barlow',
                                     fontSize: 25, fontWeight: FontWeight.w600),
                               ),

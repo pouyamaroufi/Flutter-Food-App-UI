@@ -107,7 +107,7 @@ class DrinkScreen extends StatelessWidget {
                                 color: Colors.grey,
                               ),
                               Text(
-                                '${controller.drinkList[controller.contentIndex.value].price!} \$',
+                                '\$ ${controller.drinkList[controller.contentIndex.value].price!} \$',
                                 style: GoogleFonts.getFont('Barlow',
                                     fontSize: 25, fontWeight: FontWeight.w600),
                               ),

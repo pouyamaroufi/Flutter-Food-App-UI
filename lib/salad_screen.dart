@@ -107,7 +107,7 @@ class SaladScreen extends StatelessWidget {
                                 color: Colors.grey,
                               ),
                               Text(
-                                '${controller.saladList[controller.contentIndex.value].price!} \$',
+                                '\$ ${controller.saladList[controller.contentIndex.value].price!} \$',
                                 style: GoogleFonts.getFont('Barlow',
                                     fontSize: 25, fontWeight: FontWeight.w600),
                               ),

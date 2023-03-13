@@ -24,7 +24,7 @@ class PaymentSheet extends StatelessWidget {
                 'Barlow',
               ),
             ),
-            trailing: const Text('28,562 \$'),
+            trailing: const Text('\$ 28,562'),
           ),
           ListTile(
             title: Text(
@@ -33,7 +33,7 @@ class PaymentSheet extends StatelessWidget {
                 'Barlow',
               ),
             ),
-            trailing: Text('${price.floor()}  \$'),
+            trailing: Text('\$ ${price.floor()}'),
           ),
           const Divider(
             thickness: 0.5,
@@ -44,7 +44,7 @@ class PaymentSheet extends StatelessWidget {
               style: GoogleFonts.getFont('Barlow',
                   color: Colors.black, fontWeight: FontWeight.bold),
             ),
-            trailing: Text('${(28562 - price).floor()}  \$'),
+            trailing: Text('\$ ${(28562 - price).floor()}'),
           ),
           const SizedBox(height: 25),
           BtnWidget(
