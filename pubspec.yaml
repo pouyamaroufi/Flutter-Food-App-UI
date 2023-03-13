@@ -44,9 +44,14 @@ flutter:
     - assets/images/drink-03.png
     - assets/images/drink-04.png
     - assets/images/drink-05.png
+    #
     - assets/images/pizza-01.png
     - assets/images/pizza-02.png
     - assets/images/pizza-03.png
+    - assets/images/pizza-04.png
+    - assets/images/pizza-05.png
+    - assets/images/pizza-06.png
+    #
     - assets/images/salad-01.png
     - assets/images/salad-02.png
     - assets/images/salad-03.png

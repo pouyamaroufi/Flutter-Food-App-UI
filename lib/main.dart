@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodapp/pizza_screen.dart';
+import 'package:foodapp/home_screen.dart';
 import 'package:get/route_manager.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         primarySwatch: Colors.blue,
       ),
-      home: PizzaScreen(),
+      home: HomeScreen(),
     );
   }
 }
