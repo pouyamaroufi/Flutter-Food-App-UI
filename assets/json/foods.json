@@ -24,30 +24,6 @@
         "item": 0
     },
     {
-        "id": 11,
-        "type": "pizza",
-        "name": "Pouya Chefi",
-        "price": "15.99",
-        "image": "pizza-04.png",
-        "item": 0
-    },
-    {
-        "id": 12,
-        "type": "pizza",
-        "name": "Floffy Flutter",
-        "price": "12.99",
-        "image": "pizza-05.png",
-        "item": 0
-    },
-    {
-        "id": 13,
-        "type": "pizza",
-        "name": "Rocka Chack",
-        "price": "10.99",
-        "image": "pizza-06.png",
-        "item": 0
-    },
-    {
         "id": 3,
         "type": "salad",
         "name": "Mixied Salad",

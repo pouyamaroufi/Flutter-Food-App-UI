@@ -1,6 +1,5 @@
 import 'package:countup/countup.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:foodapp/btn_widget.dart';
 import 'package:foodapp/controller.dart';
@@ -61,35 +60,21 @@ class InvoiceScreen extends StatelessWidget {
                           duration: const Duration(milliseconds: 575),
                           horizontalOffset: 150.0,
                           child: FadeInAnimation(
-                            child: Slidable(
-                              endActionPane: const ActionPane(
-                                motion: ScrollMotion(),
-                                children: [
-                                  CircleAvatar(
-                                    backgroundColor: Colors.red,
-                                    child: Icon(
-                                      Icons.delete,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ],
+                            child: ListTile(
+                              contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 10),
+                              leading: Image.asset(
+                                  'assets/images/${controller.invoiceList[i].image!}'),
+                              title: Text(
+                                controller.invoiceList[i].name!,
+                                style: GoogleFonts.getFont('Barlow',
+                                    fontWeight: FontWeight.w600),
                               ),
-                              child: ListTile(
-                                contentPadding: const EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 10),
-                                leading: Image.asset(
-                                    'assets/images/${controller.invoiceList[i].image!}'),
-                                title: Text(
-                                  controller.invoiceList[i].name!,
-                                  style: GoogleFonts.getFont('Barlow',
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                subtitle: Text(
-                                  '\$  ${controller.invoiceList[i].price!}',
-                                ),
-                                trailing: Text(
-                                  'X ${controller.invoiceList[i].item.toString()}',
-                                ),
+                              subtitle: Text(
+                                '\$  ${controller.invoiceList[i].price!}',
+                              ),
+                              trailing: Text(
+                                'X ${controller.invoiceList[i].item.toString()}',
                               ),
                             ),
                           ),
@@ -98,55 +83,58 @@ class InvoiceScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Column(
-                  children: [
-                    ListTile(
-                      title: Text(
-                        'order:',
-                        style: GoogleFonts.getFont(
-                          'Barlow',
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text(
+                          'order:',
+                          style: GoogleFonts.getFont(
+                            'Barlow',
+                          ),
+                        ),
+                        trailing:
+                            Text('\$  ${controller.totalPrice.value.floor()}'),
+                      ),
+                      ListTile(
+                        title: Text(
+                          'Tax:',
+                          style: GoogleFonts.getFont(
+                            'Barlow',
+                          ),
+                        ),
+                        trailing: const Text('\$ 0.5'),
+                      ),
+                      ListTile(
+                        title: Text(
+                          'Dilivery:',
+                          style: GoogleFonts.getFont(
+                            'Barlow',
+                          ),
+                        ),
+                        trailing: const Text('\$ 2'),
+                      ),
+                      const Divider(),
+                      ListTile(
+                        title: Text(
+                          'Total Price:',
+                          style: GoogleFonts.getFont('Barlow',
+                              fontWeight: FontWeight.w600, fontSize: 20),
+                        ),
+                        trailing: Countup(
+                          begin: 0,
+                          end: controller.totalPrice.value + 2,
+                          duration: const Duration(seconds: 1),
+                          separator: ',',
+                          prefix: '\$   ',
+                          curve: Curves.easeIn,
+                          style: GoogleFonts.getFont('Barlow',
+                              fontWeight: FontWeight.w600, fontSize: 32),
                         ),
                       ),
-                      trailing:
-                          Text('\$  ${controller.totalPrice.value.floor()}'),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Tax:',
-                        style: GoogleFonts.getFont(
-                          'Barlow',
-                        ),
-                      ),
-                      trailing: const Text('\$ 0.5'),
-                    ),
-                    ListTile(
-                      title: Text(
-                        'Dilivery:',
-                        style: GoogleFonts.getFont(
-                          'Barlow',
-                        ),
-                      ),
-                      trailing: const Text('\$ 2'),
-                    ),
-                    const Divider(),
-                    ListTile(
-                      title: Text(
-                        'Total Price:',
-                        style: GoogleFonts.getFont('Barlow',
-                            fontWeight: FontWeight.w600, fontSize: 20),
-                      ),
-                      trailing: Countup(
-                        begin: 0,
-                        end: controller.totalPrice.value + 2,
-                        duration: const Duration(seconds: 1),
-                        separator: ',',
-                        prefix: '\$   ',
-                        curve: Curves.easeIn,
-                        style: GoogleFonts.getFont('Barlow',
-                            fontWeight: FontWeight.w600, fontSize: 32),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 20),
                 BtnWidget(
