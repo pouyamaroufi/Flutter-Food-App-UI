@@ -5,6 +5,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:foodapp/btn_widget.dart';
 import 'package:foodapp/controller.dart';
 import 'package:foodapp/invoice_screen.dart';
+import 'package:foodapp/responsive.dart';
 import 'package:foodapp/triangle_painter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,10 +19,11 @@ class DrinkScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           '🥤 Drink Mood 🥤',
           style: GoogleFonts.getFont('Barlow',
-              fontSize: 30, fontWeight: FontWeight.bold),
+              fontSize: resW(25), fontWeight: FontWeight.bold),
         ),
       ),
       body: Obx(
@@ -67,13 +69,12 @@ class DrinkScreen extends StatelessWidget {
                           ),
                         ),
                         children: [
-                          const SizedBox(
-                            height: 150,
-                          ),
+                          SizedBox(height: resH(120)),
                           Text(
                             controller
                                 .drinkList[controller.contentIndex.value].name!,
-                            style: GoogleFonts.getFont('Lobster', fontSize: 25),
+                            style: GoogleFonts.getFont('Lobster',
+                                fontSize: resW(20)),
                           ),
                           CarouselSlider.builder(
                             itemCount: controller.drinkList.length,
@@ -85,7 +86,7 @@ class DrinkScreen extends StatelessWidget {
                                     child: Image.asset(
                                         'assets/images/${controller.drinkList[i].image!}')),
                             options: CarouselOptions(
-                                height: 390,
+                                height: resH(310),
                                 aspectRatio: 1,
                                 viewportFraction: 0.7,
                                 initialPage: 0,
@@ -109,7 +110,8 @@ class DrinkScreen extends StatelessWidget {
                               Text(
                                 '\$ ${controller.drinkList[controller.contentIndex.value].price!} \$',
                                 style: GoogleFonts.getFont('Barlow',
-                                    fontSize: 25, fontWeight: FontWeight.w600),
+                                    fontSize: resW(25),
+                                    fontWeight: FontWeight.w600),
                               ),
                               const Icon(
                                 Icons.favorite_rounded,
@@ -117,12 +119,12 @@ class DrinkScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 35),
+                          SizedBox(height: resH(35)),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               IconButton(
-                                iconSize: 35,
+                                iconSize: resH(35),
                                 onPressed: () {
                                   if (controller
                                           .drinkList[
@@ -148,7 +150,7 @@ class DrinkScreen extends StatelessWidget {
                                 ),
                               ),
                               CircleAvatar(
-                                radius: 40,
+                                radius: resH(40),
                                 backgroundColor: Colors.red[400]!,
                                 child: Center(
                                   child: Text(
@@ -165,7 +167,7 @@ class DrinkScreen extends StatelessWidget {
                                 ),
                               ),
                               IconButton(
-                                iconSize: 35,
+                                iconSize: resH(35),
                                 onPressed: () {
                                   controller
                                       .drinkList[controller.contentIndex.value]
@@ -203,7 +205,7 @@ class DrinkScreen extends StatelessWidget {
                                       Expanded(
                                         flex: 5,
                                         child: AvatarStack(
-                                          height: 50,
+                                          height: resH(50),
                                           avatars: [
                                             for (var n = 0;
                                                 n < controller.orderList.length;
